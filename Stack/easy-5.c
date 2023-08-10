@@ -11,16 +11,14 @@ int isOperator(char x) {
         case '-':
         case '/':
         case '*':
-        case '^':
-        case '%':
             return 1;
     }
     return 0;
 }
 
-// Convert prefix to Infix expression
-char *preToInfix(char *pre_exp) {
-    char *infix_exp = (char *)malloc(MAX_SIZE * sizeof(char));
+// Convert prefix to Postfix expression
+char *preToPost(char *pre_exp) {
+    char *post_exp = (char *)malloc(MAX_SIZE * sizeof(char));
     int length = strlen(pre_exp);
 
     // Initialize stack
@@ -41,8 +39,8 @@ char *preToInfix(char *pre_exp) {
             top--;
 
             // Concatenate the operands and operator
-            char temp[MAX_SIZE * 3];
-            sprintf(temp, "(%s%c%s)", op1, pre_exp[i], op2);
+            char temp[MAX_SIZE * 2];
+            sprintf(temp, "%s%s%c", op1, op2, pre_exp[i]);
 
             // Push string temp back to stack
             strcpy(stack[++top], temp);
@@ -55,16 +53,16 @@ char *preToInfix(char *pre_exp) {
         }
     }
 
-    // Stack now contains the Infix expression
-    strcpy(infix_exp, stack[top]);
-    return infix_exp;
+    // Stack contains only the Postfix expression
+    strcpy(post_exp, stack[top]);
+    return post_exp;
 }
 
 int main() {
     char pre_exp[] = "*+AB-CD";
-    char *infix_exp = preToInfix(pre_exp);
-    printf("Infix : %s\n", infix_exp);
-    free(infix_exp);
+    char *post_exp = preToPost(pre_exp);
+    printf("Postfix : %s\n", post_exp);
+    free(post_exp);
     return 0;
 }
-//((A+B)*(C-D))
+//AB+CD-*

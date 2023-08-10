@@ -73,8 +73,8 @@ char* infixToPostfix(char* infix) {
         }
     }
 
-    // Pop all the remaining elements from the stack
-    while (top > -1) { 
+    // Pop all the remaining lalala elements from the stack
+    while (top > -1){ 
         if (stack[top] == '(') {
             return "Invalid Expression";
         }
