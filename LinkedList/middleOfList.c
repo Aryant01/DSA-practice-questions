@@ -1,5 +1,4 @@
 // Program to find middle element of a linked list
-// Program is giving "Segmentation fault (core dumped)" error. Give me a error less program
 
 #include<stdio.h>
 #include<stdlib.h>
