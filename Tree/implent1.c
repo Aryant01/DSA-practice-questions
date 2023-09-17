@@ -52,8 +52,8 @@ void printtree(treenode *root) {
 int main() {
     treenode *n1 = createNode(10);
     treenode *n2 = createNode(11);
-    treenode *n3 = createNode(10);
-    treenode *n4 = createNode(12);
+    treenode *n3 = createNode(12);
+    treenode *n4 = createNode(13);
     treenode *n5 = createNode(14);
 
     n1->left = n2;
