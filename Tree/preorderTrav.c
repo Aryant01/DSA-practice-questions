@@ -43,8 +43,15 @@ int main() {
     root->left->right = newNode(5);
 
     printf("Preorder treaversal of binary tree is \n");
-    printPreorder(root);
+    printPreorder(root);    
 
-    getchar();
+    free(root->left->left);
+    free(root->left->right);
+
+    free(root->left);
+    free(root->right);
+
+    free(root);
+
     return 0;
 }

@@ -47,6 +47,13 @@ int main() {
 
     printf("\n");
 
-    getchar();
+    free(root->left->left);
+    free(root->left->right);
+
+    free(root->left);
+    free(root->right);
+
+    free(root);
+
     return 0;
 }

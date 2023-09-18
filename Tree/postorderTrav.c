@@ -44,6 +44,13 @@ int main() {
     printf("Postorder traversal of binary tree is \n");
     printPostorder(root);
 
-    getchar();
+    free(root->left->left);
+    free(root->left->right);
+
+    free(root->left);
+    free(root->right);
+
+    free(root);
+    
     return 0;
 }
